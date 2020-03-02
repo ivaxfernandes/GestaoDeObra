@@ -1,0 +1,65 @@
+@model IEnumerable<GestaoObras.Models.Obra>
+
+@{
+    ViewData["Title"] = "Listar";
+}
+
+<h1>Listar</h1>
+
+<p>
+    <a asp-action="Create">Criar Obra</a>
+</p>
+<table class="table">
+    <thead>
+        <tr>
+            <th>
+                @Html.DisplayNameFor(model => model.Nome)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.DataInicio)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.DataFim)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.Valor)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.Cliente)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.Engenheiro)
+            </th>
+            <th></th>
+        </tr>
+    </thead>
+    <tbody>
+@foreach (var item in Model) {
+        <tr>
+            <td>
+                @Html.DisplayFor(modelItem => item.Nome)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.DataInicio)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.DataFim)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.Valor)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.Cliente.ClienteId)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.Engenheiro.EngenheiroId)
+            </td>
+            <td>
+                <a asp-action="Editar" asp-route-id="@item.ObraId">Editar</a> |
+                <a asp-action="VerDetalhes" asp-route-id="@item.ObraId">Ver Detalhes</a> |
+                <a asp-action="Apagar" asp-route-id="@item.ObraId">Apagar</a>
+            </td>
+        </tr>
+}
+    </tbody>
+</table>

@@ -1,0 +1,45 @@
+@model GestaoObras.Models.Cliente
+
+@{
+    ViewData["Title"] = "Apagar";
+}
+
+<h1>Apagar</h1>
+
+<h3>Tem a certeza que pretende apagar?</h3>
+<div>
+    <h4>Cliente</h4>
+    <hr />
+    <dl class="row">
+        <dt class = "col-sm-2">
+            @Html.DisplayNameFor(model => model.Nome)
+        </dt>
+        <dd class = "col-sm-10">
+            @Html.DisplayFor(model => model.Nome)
+        </dd>
+        <dt class = "col-sm-2">
+            @Html.DisplayNameFor(model => model.Sexo)
+        </dt>
+        <dd class = "col-sm-10">
+            @Html.DisplayFor(model => model.Sexo)
+        </dd>
+        <dt class = "col-sm-2">
+            @Html.DisplayNameFor(model => model.Telefone)
+        </dt>
+        <dd class = "col-sm-10">
+            @Html.DisplayFor(model => model.Telefone)
+        </dd>
+        <dt class = "col-sm-2">
+            @Html.DisplayNameFor(model => model.Endereco)
+        </dt>
+        <dd class = "col-sm-10">
+            @Html.DisplayFor(model => model.Endereco)
+        </dd>
+    </dl>
+    
+    <form asp-action="Apagar">
+        <input type="hidden" asp-for="ClienteId" />
+        <input type="submit" value="DeApagarlete" class="btn btn-danger" /> |
+        <a asp-action="Listar">Voltar</a>
+    </form>
+</div>
